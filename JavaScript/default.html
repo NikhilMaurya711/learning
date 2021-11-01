@@ -1,0 +1,120 @@
+<html>
+    <head>
+        <title>UP & GOING JS</title> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            body{
+                text-align: right;
+                font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+                max-height: 100vw;min-height: 50vw;
+                width: 45vw;
+              
+            
+            }
+            #top{
+                min-height: 16vw;
+                background-image: repeating-linear-gradient(-45deg,gray,white,gray 0.5%);
+                position:relative; 
+                direction:rtl;
+               
+            }
+
+           
+            
+            .top-left{
+                font-size: 1.2vw;
+                background-color: black;
+                display:inline-block;    
+                color:white;
+                padding: 0.5vw 1vw  ;
+                position: absolute;
+                left: 3vw;
+            }
+
+            .top-left sup{
+                border :0.05vw solid white;
+                border-radius: 1vw;
+                font-size: 0.3vw;
+                vertical-align:text-top;
+                display: inline;
+               
+            }
+            .top-content{
+                display: block;
+                font-size:1.1vw;
+                padding : 0px 0 0 0 ;
+                direction:ltr;
+                max-width:30vw;
+                text-align: right;
+                margin:  1vw 3vw ;
+                position: absolute;              
+            }
+            
+            #middle {
+                min-height: 20vw; 
+                margin: 0.5vw 3vw;
+            }
+
+            #middle Strong{
+                font-size: 10vw;
+                text-align:right;   
+                           
+            }
+            #bottom {
+                background-color: rgba(255, 239, 8, 0.82);
+                height:40vw;
+                width: inherit;
+                position: absolute;
+            }
+
+            #bottom Strong{
+            
+                font-size: 35vw;
+                color: rgba(0, 0, 0,0.9);
+                z-index: 1;
+                margin: 0 3vw;        
+            }
+
+            #bottom .in-text{
+               color:  rgba(255, 239, 8, 0.82);
+                font-size:3vw; 
+                writing-mode: vertical-lr;
+                transform: rotate(180deg);
+                position: relative;
+                z-index: 1;
+                left:12vw;
+                top: -31vw;
+               
+            }
+
+        </style>
+    </head>
+
+    <body>
+  <div class="common" id="top">
+    <div class="top-left">
+        <span>O'REILLY<small><sup>R</sup></small></span>
+    </div>
+    <div class="top-content">
+        <p style="font-weight:200;">
+            "When you strive to comprehand your code, you create better
+             work and become better at work you do. The code isn't just
+             your job anymore,It's Your craft. This is why I love Up & Going."
+            
+            <span ></span><br><Strong style="font-weight: 900;">-JENN LUKAS</Strong> Frontend consultant</span>
+        </p>
+    
+    </div>
+    <h2 style="margin-right: 3vw; font-size: 3vw; position: absolute;top: 8vw;">KYLE SIMPSON</h2>
+  </div>
+
+  <div class="common" id="middle">
+      <strong >UP <span>&</span> GOING</strong>
+  </div>
+      
+  <div class="common" id="bottom">
+      <strong>JS</strong>
+      <p class="in-text">YOU DON'T KNOW</p> 
+  </div>
+    </body>
+</html>

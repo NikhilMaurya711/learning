@@ -1,0 +1,175 @@
+
+
+.left-side-column{
+    display: flex;
+    flex-direction: row;
+    justify-self: start;
+   flex: 2;
+}
+.right-sidebar-comment{
+    display: flex;
+   flex-direction: row;
+    justify-self: start;
+    flex: 2;
+}
+
+.container{
+    margin: 5% 10% 5% 10%;
+    display: flex;
+    flex-direction: row;
+    justify-content:space-around
+    
+}
+
+.Customer-ID{
+    width: 50%;
+}
+/* 
+label{
+    margin: 10px;
+    width: 30%;
+
+
+input{
+    border: 1px solid green;
+}
+.subject{
+ 
+    height: 50px;
+    width: 100%;
+}
+
+
+@media screen and (max-width: 480px) {
+   
+    label{
+  
+        width: 30%;
+    }
+
+    .control-label {
+        float: none;
+        width: auto;
+        padding-top: 0;
+    }
+
+    .controls {
+        margin-left: 0;
+    }
+    input.span12{
+        width: 100%;
+    }
+
+    .control-group:before,.control-group:after {
+        display: table;
+        content: "";
+    }
+  }
+
+  .control-group {
+    margin-bottom: 21.875px;
+    *zoom: 1;
+}
+
+
+
+
+ .control-label {
+    float: left;
+    width: 140px;
+    padding-top: 4px;
+}
+
+input[class*="span"],.row-fluid input[class*="span"]{
+    float: none;
+    margin-left: 0;
+}
+
+.controls{
+    margin-left: 160px;
+} */
+
+
+
+/* div label{
+    width: 200px;
+} */
+
+.form-data{
+    display: flex;
+    flex-direction: column;
+
+}
+
+.control-data{
+    display: flex;
+    flex-direction: row;
+    justify-self: space-between;
+    margin: 1%;
+}
+.control-data div{
+    width: 50%;
+}
+
+@media screen and (max-width: 480px) {
+    .left-side-column{
+        display: block;
+        /* flex-direction: column;
+        justify-self: start;
+       flex: 2; */
+    }
+    
+    .control-data{
+        display: block;
+        /* flex-direction: none; */
+        /* justify-self: space-between */
+    }
+    .control-data div{
+        width: 100%;
+    }
+
+    input{
+        width: 100%;
+    }
+    .control-data input{
+        margin-top: 1%;
+    }
+}
+
+.subject{
+    margin: 1%;
+}
+.subject div{
+    margin-top: 1%;
+    display: block;
+    flex-direction: row;
+        
+}
+.subject-div-input{
+    width: 100%;
+    height: 200px;
+}
+
+.subject-input{
+    width: 100%;
+    height: 20%;
+}
+
+.description{
+    margin-left: 2%;
+}
+.description div{
+    margin-top: 1%;
+    display: block;
+    flex-direction: row;
+        
+}
+.description-div-input{
+    width: 100%;
+    height: 200px;
+}
+
+.description-input{
+    width: 100%;
+    height: 20%;
+}

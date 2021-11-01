@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>chat App</title>
+    <link rel="stylesheet" href="./home.css">
+    <style>
+        .container-input {
+            position: fixed;
+            bottom: 10px;
+            align-items: center;
+        }
+
+        .container {
+            position: absolute;
+            width: 500px;
+
+        }   
+        .myMessage{
+            position: relative;
+            float: right;
+            right: 10%;
+            color: blue;
+        }
+    </style>
+    <script src="https://cdn.socket.io/socket.io-3.0.1.min.js"></script>
+
+</head>
+
+<body>
+    <div class="container">
+        <div>
+            <div id="message-chat"></div>
+        </div>
+        <div class="container-input">
+            <div>
+                <input type="text" class="message">
+                <button onclick="sendMessage()">Send Message</button>
+            </div>
+        </div>
+        
+
+    </div>
+    <script>
+        const socket = io('http://localhost:3000/')
+
+        socket.on("connection")
+        socket.on("message", (data) => {
+            const chatspace = document.querySelector('#message-chat')
+            oldData = chatspace.innerHTML+"<br>"
+            chatspace.innerHTML = oldData + data
+        })
+        const sendMessage = () => {
+
+            const messageInput = document.querySelector('.message')
+            const message = messageInput.value
+            socket.emit('message', message)
+            
+            const chatspace2 = document.querySelector('#message-chat')
+            oldData = chatspace2.innerHTML+"<br>"
+            const myMessage = `<div class="myMessage">${message}</div>`
+            chatspace2.innerHTML = oldData + myMessage
+
+            messageInput.value = '';
+        }
+
+    </script>
+</body>
+
+</html>

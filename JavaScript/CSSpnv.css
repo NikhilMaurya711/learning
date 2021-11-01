@@ -1,0 +1,45 @@
+
+body{
+    background-color: wheat;
+}
+#center{
+    text-align: center;
+    font-size: 5vw;
+    color: rgb(13, 224, 101);
+
+}
+.index{
+    width: 100%;    
+
+    background-color: #010101;
+}
+
+.content{
+    font-size: 2vw;
+    background-color: wheat;
+}
+.index li,a {
+    list-style-type: none;
+    display: inline-block;
+    color: rgb(180, 209, 185);
+    width: 100px;
+    margin:0px;
+    color: white;
+    padding : 5px;
+    text-decoration:none;
+}
+
+#bottom{
+
+    font-size: 3vw;
+    color: rgb(45, 13, 224);
+    height: 10vw;
+}
+
+input:focus {
+    background-color: rgb(223, 251, 255);
+  }
+
+  textarea:focus {
+    background-color: rgb(230, 252, 255);
+  }
