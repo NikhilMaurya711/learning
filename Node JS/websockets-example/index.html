@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="8">
+        <title>WebSocket</title>
+    </head>
+
+    <body>
+        <h1>WebSocket Basic</h1>
+
+        <script>
+            const ws = new WebSocket("ws://localhost:3000")
+
+            ws.addEventListener('open',(ws)=>{
+                console.log("connected to the server",ws);
+            })
+        </script>
+    </body>
+</html>
