@@ -2,8 +2,7 @@
 const fs = require('fs')
 const parse = require('csv-parse');
 const path = require('path');
-
-const habitablePlanet = [];
+const planets = require ('./planets.mongoose')
 
 function isHabitablePlanet(planet) {
     return planet['koi_disposition'] === 'CONFIRMED'
@@ -20,24 +19,19 @@ function loadPlanetData() {
                 comment: '#',
                 columns: true,
             }))
-            .on('data', (data) => {
+            .on('data',async (data) => {
 
                 if (isHabitablePlanet(data)) {
-                    habitablePlanet.push(data)
+                    savePlanets(data)
                 }
             })
-            .on('error', (err) => {
-                console.log(err);
-                reject(err)
-            })
-            .on('end', () => {
-                // console.log(habitablePlanet);
-                // console.log();
-                // console.log(`${habitablePlanet.length} habitable planets found!`);
-                var c = habitablePlanet.map((planet) => {
-                    return planet['kepler_name'];
-                })
-                resolve(c)
+            // .on('error', (err) => {
+            //     console.log(err);
+            //     reject(err)
+            // })
+            .on('end',async () => {
+                const planetCount = (await getAllplanets()).length
+                console.info(`${planetCount} habitable planets found`)
             })
 
 
@@ -48,54 +42,25 @@ async function test(){
     return await loadPlanetData();
 }
 
+async  function savePlanets(planet){
+    try{
+    return await planets.updateOne({
+        kepler_name: planet.kepler_name
+    },{
+        kepler_name: planet.kepler_name
+    },{
+        upsert: true
+    });
+    }catch(error){
+        console.error("could not save planet => ",error)
+    }
+}
 var k = test();
 
-
-// fs.createReadStream(path.join(__dirname,'..','..','data','kepler_data.csv'))
-// .pipe(parse({
-//     comment:'#',
-//     columns: true,
-// }))
-// .on('data',(data)=>{
-
-//   if (isHabitablePlanet(data)){
-//     habitablePlanet.push(data)
-//   }
-// })
-// .on('error',(err)=>{
-//     console.log(err);
-// })
-// .on('end',()=>{
-//     // console.log(habitablePlanet);
-//     // console.log();
-//     // console.log(`${habitablePlanet.length} habitable planets found!`);
-//     var c = habitablePlanet.map((planet) => {
-//         return planet['kepler_name'];
-//       })
-//       console.log(c);
-// })
-
-/*
-
-const promise = new Promise((resolve,reject)=>{
-    resolve(42)
-});
-
-promise.then((result)=>{  //result =42
-
-})
-
-//or 
-
-const result = await promise
-
-*/
-
-// function httpGetAllplanets(){
-    
-// }
-function getAllplanets(){
-    return habitablePlanet
+async function getAllplanets(){
+    return await planets.find({},{
+        '_id':0,'__v':0,
+    })
 }
 module.exports = {
     loadPlanetData,
